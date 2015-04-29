@@ -1,0 +1,41 @@
+<div>
+	<div class="wrapper-md">
+	  	<div class="panel panel-info  m-b-s">
+	    	<div class="panel-heading">
+	      		<h1 style="text-align:center;">Product Price Comparisor Verson1</h1>
+	      		<a href="/#/version2">version2</a>
+	    	</div>
+	    </div>
+        <div class="form-group">
+		    <div class="table-responsive">
+			    <table class="table table-striped b-t b-light">
+			        <thead>
+			          	<tr>
+			            	<th colspan="3" style="text-align:center;height:70px;">
+			            		<input type="text" style="width:90%;height:50px;" ng-model="search.searchText" placeholder="enter the Product for searching">
+			            	</th>
+			            	<th style="width:25%;">
+			            		<button type="submit" ng-click="search(search)" class="btn btn-primary">Search</button>
+			            	</th>
+			          	</tr>
+			        </thead>
+			        <tbody ng-if="dtls.length > 0">
+			        	<tr>
+			        		<th style="text-align:center;">Store</th>
+			        		<th style="text-align:center;">MRP</th>
+			        		<th style="text-align:center;">Price</th>
+			        		<th></th>
+			        	</tr>
+			        	<tr ng-repeat="store in dtls | orderBy:'available_price'">
+			        		<td align="center" class="table_price_td">{{store.source}} </td>
+			        		<td align="center" class="table_price_td">{{store.mrp}}</td>
+			        		<td align="center" class="table_price_td">{{store.available_price}}</td>
+			        		<td align="center" class="table_price_td"><button class="btn btn-primary btn-rounded btn-md" ng-click="show_details(store.url)">View Details
+			        		</td>
+			        	</tr> 
+			        </tbody>
+			    </table>
+		    </div>
+		</div>
+	</div>		
+</div>		

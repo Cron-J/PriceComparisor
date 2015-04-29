@@ -1,0 +1,53 @@
+<div>
+	<div class="wrapper-md">
+	  	<div class="panel panel-info  m-b-s">
+	    	<div class="panel-heading">
+	      		<h1 style="text-align:center;">Product Price Comparisor Version2</h1>
+	      		<a href="/">version1</a>
+	    	</div>
+	    </div>
+        <div class="form-group">
+		    <div class="table-responsive">
+			    <table class="table table-striped b-t b-light">
+			        <thead>
+			          	<tr>
+			            	<th style="width:25%;text-align:right;">Category</th>
+			            	<th style="width:25%;text-align:center;">
+			            		<select ng-model="search.category" ng-options="categories.code as categories.name for categories in categories">
+								<option value="">Choose a category </option>
+								</select>
+			            	</th>
+			            	<th style="width:25%;text-align:center;">
+			            		<input type="text" ng-model="search.searchText" placeholder="enter the product for searching">
+			            	</th>
+			            	<th style="width:25%;">
+			            		<button type="submit" ng-click="searchVersion2(search)" class="btn btn-primary">Search</button>
+			            	</th>
+			          	</tr>
+			        </thead>
+			        <tbody ng-if="search_dtls!=null">
+			        	<tr>
+			        		<th style="text-align:center;">Store</th>
+			        		<th style="text-align:center;">Price</th>
+			        		<th style="text-align:center;">Stock</th>
+			        		<th style="text-align:center;"></th>
+			        	</tr>	
+			        	<tr ng-repeat="store in search_dtls.stores">
+			        		<td style="text-align:center;">{{store.website}} </td>
+			        		<td style="text-align:center;">{{store.price}}</td>
+			        		<td style="text-align:center;">{{store.stock}}</td>
+			        		<td>
+			        			<img ng-src="{{store.image}}" alt="search_result" style="width:100%;height:228px;">
+			        		</td>	
+			        	</tr>
+			        </tbody>
+			        <tbody>
+			        	<tr ng-if="searchbtn">
+			        		<td colspan="4" align='center'>Sorry No match found </td>
+			        	</tr>	
+			        </tbody>	
+			    </table>
+		    </div>
+		</div>
+	</div>	
+</div>
